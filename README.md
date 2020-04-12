@@ -1,5 +1,26 @@
 # Dumb-server
-**A simple multi threaded and multi processes client server application built with C.**
+Simple client-server applications implemented in different ways:
+
+1. Using pthread()
+2. Using fork()
+3. Using select()
+4. Using Conditional Compilation Method
+5. Using Ncurses Library
+
+#USAGE
+
+## Server using select()
+server: 
+
+	file:  dumb_Sserver
+	usage: ./dumb_Sserver <port> <backlog>
+
+client: 
+
+	file:  dumb_client
+	usage: ./dumb_client <serveraddress> <port>
+	options: <serveraddreess> type '0' or 'localhost' to connect to the local server else specify.
+
 
 ## Multi-process server
 server: 
@@ -14,7 +35,7 @@ client:
 	options: <serveraddreess> type '0' or 'localhost' to connect to the local server else specify.
 
 
-## Multi-threaded server 
+## Multi-thread server 
 server:
 
 	file:  dumb_Tserver

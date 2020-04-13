@@ -1,4 +1,4 @@
-# DUMB-SERVER [![Build Status](https://travis-ci.org/deep5050/dumb-server.svg?branch=master)](https://travis-ci.org/deep5050/dumb-server) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8053bfdc3a4a4ca8bcbb28a848c3f2f3)](https://www.codacy.com/manual/dipankarpal5050/dumb-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=deep5050/dumb-server&amp;utm_campaign=Badge_Grade) 
+# DUMB-SERVER [![Build Status](https://travis-ci.org/deep5050/dumb-server.svg?branch=master)](https://travis-ci.org/deep5050/dumb-server) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8053bfdc3a4a4ca8bcbb28a848c3f2f3)](https://www.codacy.com/manual/dipankarpal5050/dumb-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=deep5050/dumb-server&amp;utm_campaign=Badge_Grade) ![Slack Notification](https://github.com/deep5050/dumb-server/workflows/Slack%20Notification%20Demo/badge.svg)
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/deep5050/dumb-server)
 
 Simple client-server applications implemented in different ways:

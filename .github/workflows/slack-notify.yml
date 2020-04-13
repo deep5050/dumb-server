@@ -1,5 +1,5 @@
 on: push
-name: Slack Notification Demo
+name: Slack Notification 
 jobs:
   slackNotification:
     name: Slack Notification
@@ -12,7 +12,7 @@ jobs:
          SLACK_CHANNEL: deep
          SLACK_COLOR: '#3278BD'
          SLACK_ICON: https://github.com/rtCamp.png?size=48
-         SLACK_MESSAGE: 'Post Content :rocket:'
+         SLACK_MESSAGE: 'dumb-server has benn updatet :rocket:'
          SLACK_TITLE: slack-noify
          SLACK_USERNAME: deep5050
          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

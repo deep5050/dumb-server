@@ -1,4 +1,4 @@
-# Dumb-server
+# DUMB-SERVER
 Simple client-server applications implemented in different ways:
 
 1. Using pthread()
@@ -7,7 +7,7 @@ Simple client-server applications implemented in different ways:
 4. Using Conditional Compilation Method
 5. Using Ncurses Library
 
-#USAGE
+# USAGE
 
 ## Server using select()
 server: 

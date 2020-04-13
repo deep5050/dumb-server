@@ -1,6 +1,8 @@
 # DUMB-SERVER
 Simple client-server applications implemented in different ways:
 
+![output](/screenshots/output.png)
+
 1. Using pthread()
 2. Using fork()
 3. Using select()

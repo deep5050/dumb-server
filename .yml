@@ -1,2 +1,0 @@
-- name: Slack Notify
-  uses: rtCamp/action-slack-notify@v2.0.1

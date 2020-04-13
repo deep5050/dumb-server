@@ -4,3 +4,6 @@ compiler:
 
 script:
   -  make 
+  
+notifications:
+  slack: deep5050:mPRT9iUOVbS7hItqY6cYuVua

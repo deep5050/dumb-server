@@ -1,4 +1,6 @@
 - name: validate-license-action
   uses: datreeio/validate-license-action@v1.0.0
+- name: Slack Notify
+  uses: rtCamp/action-slack-notify@v2.0.1
 
   

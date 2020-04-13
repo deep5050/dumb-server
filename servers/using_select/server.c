@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         FD_SET(server_fd, &temp_fds);
         // keep track of the biggest file descriptor
         max_fd = server_fd; // so far, it's this one
-        printf("server fd: %d", server_fd);
+      
 
         while (1)
         {
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
                 {
                     if (i == server_fd)
                     {
-                        printf("under server fd\n");
+                       
 
                         // there is a new connection
                         new_fd = accept(server_fd, (struct sockaddr *)&client_addr, &client_addr_size);
@@ -129,13 +129,13 @@ int main(int argc, char *argv[])
                             if (new_fd > max_fd)
                                 max_fd = new_fd;
                             inet_ntop(client_addr.sin_family, &client_addr.sin_addr.s_addr, addr, sizeof(addr));
-                            printf("[%s] SERVER: NEW CLIENT ID(%d): %s:%d\n", timestamp(), new_fd - 3, addr, ntohs(client_addr.sin_port));
+                            printf("[%s] SERVER: NEW CLIENT ID(%d): %s:%d\n", timestamp(), new_fd - server_fd, addr, ntohs(client_addr.sin_port));
                             // send greetings
 
                             bytes_sent = send(new_fd, &greetings, sizeof(greetings), 0);
                             if (bytes_sent == 0)
                             {
-                                printf("[%s] SERVER: Connection lost with client(%d)\n", timestamp(), new_fd - 3);
+                                printf("[%s] SERVER: Connection lost with client(%d)\n", timestamp(), new_fd - server_fd);
                                 FD_CLR(new_fd, &read_fds);
 
                                 close(new_fd);
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
                             if (bytes_recvd == 0)
                             {
                                 // connection closed
-                                printf("[%s] SERVER: Connection lost with client(%d)\n", timestamp(), i - 3);
+                                printf("[%s] SERVER: Connection lost with client(%d)\n", timestamp(), i - server_fd);
                                 close(i);               // bye!
                                 FD_CLR(i, &temp_fds); // remove from master set
                             }
@@ -169,12 +169,12 @@ int main(int argc, char *argv[])
                             {
                                 close(i);
                                 FD_CLR(i, &temp_fds); // remove from master set
-                                printf("[%s] SERVER: DISCONNECTED: CLIENT(%d)\n", timestamp(), i - 3);
+                                printf("[%s] SERVER: DISCONNECTED: CLIENT(%d)\n", timestamp(), i - server_fd);
                                 break;
                             }
 
                             fflush(stdout);
-                            printf("[%s] CLIENT_%d@host:~$%s", timestamp(), i - 3, buff);
+                            printf("[%s] CLIENT_%d@host:~$%s", timestamp(), i - server_fd, buff);
                         }
                     } // othe than server_fd ends
                 }

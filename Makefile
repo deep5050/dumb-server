@@ -1,36 +1,35 @@
 CC = gcc
 
-all: makebin dumb_client dumb_Nclient dumb_Pserver dumb_Tserver dumb_Sserver dumb_Nserver
+all: clean makebinaries dumb_client dumb_Nclient dumb_Pserver dumb_Tserver dumb_Sserver dumb_Nserver
 
-makebin:
-	mkdir bin
-	
+makebinaries:
+	mkdir binaries
+
 dumb_client: clients/client.c
-	$(CC) $< -o bin/$@ 
+	$(CC) $< -o binaries/$@ 
 
 dumb_Nclient: clients/using_ncurses/client.c
-	$(CC)  $< -o bin/$@ -lncurses
+	$(CC)  $< -o binaries/$@ -lncurses
 	
 
 
 
 
 dumb_Pserver: servers/using_conditional_compilation/server.c
-	$(CC) -o bin/$@ $< -D PROCESS
+	$(CC) -o binaries/$@ $< -D PROCESS
 
 dumb_Tserver: servers/using_conditional_compilation/server.c
-	$(CC) -o bin/$@ $< -D THREAD -lpthread
+	$(CC) -o binaries/$@ $< -D THREAD -lpthread
 
 dumb_Sserver:
 	cd servers/using_select && make
 
 dumb_Nserver: servers/using_ncurses/server.c
-		$(CC) -o bin/$@ $< -lncurses
+		$(CC) -o binaries/$@ $< -lncurses
 
 
 clean:
-	rm bin/dumb_*
-
+	rm  -r binaries
 
 
 

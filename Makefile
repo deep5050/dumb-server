@@ -1,8 +1,10 @@
 CC = gcc
 
-all: dumb_client dumb_Nclient dumb_Pserver dumb_Tserver dumb_Sserver dumb_Nserver
+all: makebin dumb_client dumb_Nclient dumb_Pserver dumb_Tserver dumb_Sserver dumb_Nserver
 
-
+makebin:
+	mkdir bin
+	
 dumb_client: clients/client.c
 	$(CC) $< -o bin/$@ 
 

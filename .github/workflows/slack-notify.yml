@@ -15,4 +15,4 @@ jobs:
          SLACK_MESSAGE: 'Post Content :rocket:'
          SLACK_TITLE: 'slack-noify'
          SLACK_USERNAME: 'deep5050'
-         SLACK_WEBHOOK: https://hooks.slack.com/services/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
+         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

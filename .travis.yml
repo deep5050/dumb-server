@@ -8,7 +8,5 @@ script:
 
 
 notifications:
-  slack: deep5050:yT6SnR6Q53MaTIG2xkTbWVro
-    on_success: always
-    on_failure: always
-
+  slack:deep5050
+       rooms:yT6SnR6Q53MaTIG2xkTbWVro

@@ -4,10 +4,10 @@ all: dumb_client dumb_Nclient dumb_Pserver dumb_Tserver dumb_Sserver dumb_Nserve
 
 
 dumb_client: clients/client.c
-	$(CC) -o bin/$@ $<
+	$(CC) $< -o bin/$@ 
 
 dumb_Nclient: clients/using_ncurses/client.c
-	$(CC) -o bin/$@ $< -lncurses
+	$(CC)  $< -o bin/$@ -lncurses
 	
 
 

@@ -6,4 +6,7 @@ script:
   -  make 
   
 notifications:
-  slack: deep5050:mPRT9iUOVbS7hItqY6cYuVua
+  slack: deep5050:yT6SnR6Q53MaTIG2xkTbWVro
+      on_success: always
+      on_failure: always
+      on_pull_requests: true

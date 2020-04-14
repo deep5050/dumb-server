@@ -8,5 +8,4 @@ script:
 
 
 notifications:
-  slack:deep5050
-       rooms:yT6SnR6Q53MaTIG2xkTbWVro
+  slack: deep5050:PMQ2pnnwRutOw0eqdtdod7Br

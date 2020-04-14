@@ -1,5 +1,6 @@
-# DUMB-SERVER [![Build Status](https://travis-ci.org/deep5050/dumb-server.svg?branch=master)](https://travis-ci.org/deep5050/dumb-server) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8053bfdc3a4a4ca8bcbb28a848c3f2f3)](https://www.codacy.com/manual/dipankarpal5050/dumb-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=deep5050/dumb-server&amp;utm_campaign=Badge_Grade) ![Slack Notification](https://github.com/deep5050/dumb-server/workflows/Slack%20Notification%20Demo/badge.svg)
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/deep5050/dumb-server)
+# DUMB-SERVER [![Build Status](https://travis-ci.org/deep5050/dumb-server.svg?branch=master)](https://travis-ci.org/deep5050/dumb-server) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8053bfdc3a4a4ca8bcbb28a848c3f2f3)](https://www.codacy.com/manual/dipankarpal5050/dumb-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=deep5050/dumb-server&amp;utm_campaign=Badge_Grade) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/deep5050/dumb-server/graphs/commit-activity) ![GitHub repo size](https://img.shields.io/github/repo-size/deep5050/dumb-server) ![GitHub language count](https://img.shields.io/github/languages/count/deep5050/dumb-server)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/deep5050/dumb-server)  [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/deep5050/)
 
 Simple client-server applications implemented in different ways:
 
@@ -74,21 +75,20 @@ client:
 	
 	
 	
-# LICENSE
+# LICENSE 
 
-	
 ![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)
 
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
  
-Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+	Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
 
-Everyone is permitted to copy and distribute verbatim or modified
-copies of this license document, and changing it is allowed as long
-as the name is changed.
+	Everyone is permitted to copy and distribute verbatim or modified
+	copies of this license document, and changing it is allowed as long
+	as the name is changed.
  
            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+	TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
- 0. You just DO WHAT THE FUCK YOU WANT TO.
+	0. You just DO WHAT THE FUCK YOU WANT TO.

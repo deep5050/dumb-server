@@ -24,7 +24,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Install falwfinder
-      run: apt-get install flawfinder
+      run: sudo apt-get install flawfinder
 
     # Runs a set of commands using the runners shell
     - name: check flaws

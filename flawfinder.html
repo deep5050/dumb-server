@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf8">
+<title>Flawfinder Results</title>
+<meta name="author" content="David A. Wheeler">
+<meta name="keywords" lang="en" content="flawfinder results, security scan">
+</head>
+<body>
+<h1>Flawfinder Results</h1>
+Here are the security scan results from
+<a href="http://www.dwheeler.com/flawfinder">Flawfinder version 1.31</a>,
+(C) 2001-2014 <a href="http://www.dwheeler.com">David A. Wheeler</a>.
+Number of rules (primarily dangerous function names) in C/C++ ruleset: 169
+<p>
+Examining ./servers/using_pthread/server.c <br>
+Examining ./servers/using_select/tools/headers/utils.h <br>
+Examining ./servers/using_select/tools/utils.c <br>
+Examining ./servers/using_select/server.c <br>
+Examining ./servers/using_fork/server.c <br>
+Examining ./servers/using_ncurses/server.c <br>
+Examining ./servers/using_conditional_compilation/server.c <br>
+Examining ./clients/client.c <br>
+Examining ./clients/using_ncurses/client.c <br>
+
+<h2>Final Results</h2>
+<ul>
+<li>./clients/client.c:73:9: <b>  [4] </b> (buffer) <i> strcpy:
+  Does not check for buffer overflows when copying to destination (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>).
+  Consider using strcpy_s, strncpy, or strlcpy (warning, strncpy is easily
+  misused). </i>
+<pre>
+        strcpy(srvaddr, argv[1]);
+</pre>
+<li>./servers/using_ncurses/server.c:219:13: <b>  [4] </b> (shell) <i> system:
+  This causes a new program to execute and is difficult to use safely (<a
+  href="http://cwe.mitre.org/data/definitions/78.html">CWE-78</a>). try using
+  a library call that implements the same functionality if available. </i>
+<pre>
+            system("");
+</pre>
+<li>./clients/client.c:53:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char srvaddr[INET_ADDRSTRLEN];
+</pre>
+<li>./clients/client.c:69:9: <b>  [2] </b> (buffer) <i> strcpy:
+  Does not check for buffer overflows when copying to destination (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>).
+  Consider using strcpy_s, strncpy, or strlcpy (warning, strncpy is easily
+  misused). Risk is low because the source is a constant string. </i>
+<pre>
+        strcpy(srvaddr, "0.0.0.0");
+</pre>
+<li>./clients/client.c:86:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char client_buffer[1], greetings_from_server[100];
+</pre>
+<li>./clients/client.c:137:9: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+        char buff[max_mssg_len];
+</pre>
+<li>./clients/using_ncurses/client.c:81:14: <b>  [2] </b> (integer) <i> atoi:
+  Unless checked, the resulting number can exceed the expected range (<a
+  href="http://cwe.mitre.org/data/definitions/190.html">CWE-190</a>). If
+  source untrusted, check both minimum and maximum, even if the input had no
+  minus sign (large numbers can roll over into negative number; consider
+  saving to an unsigned value if that is intended). </i>
+<pre>
+    myport = atoi(argv[1]);
+</pre>
+<li>./clients/using_ncurses/client.c:84:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char client_buffer[1], greetings_from_server[100];
+</pre>
+<li>./clients/using_ncurses/client.c:128:9: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+        char buff[1];
+</pre>
+<li>./servers/using_conditional_compilation/server.c:95:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_conditional_compilation/server.c:182:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_conditional_compilation/server.c:186:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_fork/server.c:92:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_fork/server.c:96:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_ncurses/server.c:87:15: <b>  [2] </b> (integer) <i> atoi:
+  Unless checked, the resulting number can exceed the expected range (<a
+  href="http://cwe.mitre.org/data/definitions/190.html">CWE-190</a>). If
+  source untrusted, check both minimum and maximum, even if the input had no
+  minus sign (large numbers can roll over into negative number; consider
+  saving to an unsigned value if that is intended). </i>
+<pre>
+    backlog = atoi(argv[2]);
+</pre>
+<li>./servers/using_ncurses/server.c:94:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_ncurses/server.c:98:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_pthread/server.c:94:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_pthread/server.c:172:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_pthread/server.c:176:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_select/server.c:49:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_select/server.c:61:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char buff[max_mssg_len];
+</pre>
+<li>./servers/using_select/server.c:66:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char server_IP[INET_ADDRSTRLEN];
+</pre>
+<li>./servers/using_select/tools/utils.c:59:5: <b>  [2] </b> (buffer) <i> char:
+  Statically-sized arrays can be improperly restricted, leading to potential
+  overflows or other issues (CWE-119:<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). Perform
+  bounds checking, use functions that limit length, or ensure that the size
+  is larger than the maximum possible length. </i>
+<pre>
+    char addr[INET_ADDRSTRLEN];
+</pre>
+<li>./clients/client.c:29:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./clients/client.c:36:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./clients/client.c:141:29: <b>  [1] </b> (buffer) <i> getchar:
+  Check buffer boundaries if used in a loop including recursive loops (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>, <a
+  href="http://cwe.mitre.org/data/definitions/20.html">CWE-20</a>). </i>
+<pre>
+        while ((buff[n++] = getchar()) != '\n')
+</pre>
+<li>./clients/using_ncurses/client.c:43:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./clients/using_ncurses/client.c:50:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_conditional_compilation/server.c:30:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./servers/using_conditional_compilation/server.c:37:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_fork/server.c:32:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./servers/using_fork/server.c:39:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_ncurses/server.c:33:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./servers/using_ncurses/server.c:40:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_pthread/server.c:40:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./servers/using_pthread/server.c:47:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_select/tools/utils.c:30:15: <b>  [1] </b> (buffer) <i> strlen:
+  Does not handle strings that are not \0-terminated; if given one it may
+  perform an over-read (it could cause a crash if unprotected) (<a
+  href="http://cwe.mitre.org/data/definitions/126.html">CWE-126</a>). </i>
+<pre>
+    int len = strlen(str) + 1;
+</pre>
+<li>./servers/using_select/tools/utils.c:37:13: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+            strncpy(&amp;str[i], &amp;str[i + 1], len - i);
+</pre>
+<li>./servers/using_select/tools/utils.c:138:5: <b>  [1] </b> (buffer) <i> strncpy:
+  Easily used incorrectly; doesn't always \0-terminate or check for invalid
+  pointers (<a
+  href="http://cwe.mitre.org/data/definitions/120.html">CWE-120</a>). </i>
+<pre>
+    strncpy(server_IP, addr, INET_ADDRSTRLEN);
+</pre>
+</ul>
+<h2>Analysis Summary</h2>
+<p>
+Hits = 40
+<br>
+Lines analyzed = 1814 in approximately 0.03 seconds (56017 lines/second)
+<br>
+Physical Source Lines of Code (SLOC) = 1317
+<br>
+Hits@level = [0]   0 [1]  16 [2]  22 [3]   0 [4]   2 [5]   0 <br>
+Hits@level+ = [0+]  40 [1+]  40 [2+]  24 [3+]   2 [4+]   2 [5+]   0 <br>
+Hits/KSLOC@level+ = [0+] 30.3721 [1+] 30.3721 [2+] 18.2232 [3+] 1.5186 [4+] 1.5186 [5+]   0 <br>
+Dot directories skipped = 2 (--followdotdir overrides)
+<br>
+Minimum risk level = 1
+<br>
+Not every hit is necessarily a security vulnerability.
+<br>
+There may be other security vulnerabilities; review your code!
+<br>
+See '<a href="http://www.dwheeler.com/secure-programs">Secure Programming for Linux and Unix HOWTO</a>'
+(<a href="http://www.dwheeler.com/secure-programs">http://www.dwheeler.com/secure-programs</a>) for more information.
+</body>
+</html>

@@ -1,0 +1,5 @@
+- name: cppcheck-action
+  uses: deep5050/cppcheck-action@1.0
+
+- name: flawfinder-action
+  uses: deep5050/flawfinder-action@1.0
